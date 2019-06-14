@@ -6,8 +6,7 @@
 // class LinkedList;
 
 int main() {
-    // std::unique_ptr<LinkedList<int>> list(new LinkedList<int>);
-    LinkedList<int> *list = new LinkedList<int>;
+    std::shared_ptr<LinkedList<int>> list(new LinkedList<int>);
 
     list->addFirst(3);
     list->addFirst(5);

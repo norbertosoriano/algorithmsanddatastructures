@@ -5,21 +5,16 @@
 using namespace std;
 
 // template <class T>
-// class LinkedListNode;
+// class Node;
 
 template <class T>
 class LinkedList {
-    // std::unique_ptr<LinkedListNode<T>> m_head;
-    // std::unique_ptr<LinkedListNode<T>> m_tail;
-    Node<T> *m_head;
-    Node<T> *m_tail;
+    std::shared_ptr<Node<T>> m_head;
+    std::shared_ptr<Node<T>> m_tail;
 
     public:
-        // void addFirst(T value) {
         void addFirst(T value) {
-            // std::unique_ptr<LinkedListNode<T>> tmp(new LinkedListNode<T>); 
-
-            Node<T> *tmp = new Node<T>;
+            std::shared_ptr<Node<T>> tmp(new Node<T>); 
             tmp->setValue(value);
             tmp->setNext(m_head);
 
@@ -27,8 +22,7 @@ class LinkedList {
         }
 
         void print() {
-            // std::unique_ptr<LinkedListNode<T>> tmp = m_head;
-            Node<T> *tmp = m_head;
+            std::shared_ptr<Node<T>> tmp = m_head;
 
             while(tmp) {
                 cout << tmp->getValue() << endl;

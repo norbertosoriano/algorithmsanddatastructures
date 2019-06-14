@@ -1,9 +1,10 @@
 #include <iostream>
+#include <memory>
 
 template <class T>
 class Node {
     T m_value;
-    Node *m_next;
+    std::shared_ptr<Node<T>> m_next;
 
     public:
         T getValue() const {
@@ -14,11 +15,11 @@ class Node {
             this->m_value = value;
         }
 
-        Node *getNext() const {
+        std::shared_ptr<Node<T>> getNext() const {
             return this->m_next;
         }
 
-        void setNext(Node *next) {
+        void setNext(std::shared_ptr<Node<T>> next) {
             this->m_next = next;
         }
 };
